@@ -1,6 +1,6 @@
 import { app } from "./index.js";
 import debug from "debug";
-const createDebug = debug("a-server:server");
+const createDebug = debug("robots:server");
 
 const startServer = (port: number) => {
   app.listen(port, () => {

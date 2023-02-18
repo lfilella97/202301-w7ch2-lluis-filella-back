@@ -7,8 +7,8 @@ const port = process.env.PORT ?? 4000;
 
 app.use(express.json());
 
-app.get("/robots", getRobots);
-
 startServer(+port);
+
+app.get("/robots", getRobots);
 
 export { app };
