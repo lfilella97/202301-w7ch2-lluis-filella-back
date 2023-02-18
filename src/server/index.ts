@@ -6,6 +6,6 @@ app.use(express.json());
 
 const port = process.env.PORT ?? 4000;
 
-startServer();
+startServer(+port);
 
-export { app, port };
+export { app };
