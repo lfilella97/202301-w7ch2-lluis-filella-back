@@ -1,1 +1,2 @@
-const a = 4;
+import "./loadEnvoirements.js";
+import "./server/index.js";
