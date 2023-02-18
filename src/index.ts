@@ -1,1 +1,2 @@
-import "loadEnvoirements.js";
+import "./loadEnvoirements.js";
+import "./server/index.js";
