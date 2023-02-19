@@ -1,6 +1,11 @@
 import type { NextFunction, Request, Response } from "express";
-import { robots } from "../../robots";
+import { Robot } from "../../database/RobotSchema.js";
 
-export const getRobots = (req: Request, res: Response, next: NextFunction) => {
-  res.status(200).json(robots);
+export const getRobots = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const Robots = await Robot.find();
+  res.status(200).json({ Robots });
 };
