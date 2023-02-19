@@ -1,4 +1,4 @@
-import { app } from "./index.js";
+import app from "./index.js";
 import debug from "debug";
 const createDebug = debug("robots:server");
 
