@@ -4,7 +4,10 @@ import cors from "cors";
 import { getRobots } from "./controllers/robotsControllers.js";
 
 const app = express();
-const allowedOrigins = ["https://w6chwe-marcel-lluis.onrender.com"];
+const allowedOrigins = [
+  "http://localhost:3000/",
+  "https://202301-w6chwe-marcel-martino-lluis-fi.netlify.app/",
+];
 const options: cors.CorsOptions = {
   origin: allowedOrigins,
 };
