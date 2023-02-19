@@ -1,7 +1,7 @@
-import { startDatabase } from "./database/conectDatabase.js";
 import "./loadEnvoirements.js";
-import "./server/index.js";
+import { startDatabase } from "./database/conectDatabase.js";
 import startServer from "./server/startServer.js";
+import "./server/index.js";
 
 const port = process.env.PORT ?? 4000;
 
