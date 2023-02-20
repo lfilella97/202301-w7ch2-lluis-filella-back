@@ -1,11 +1,12 @@
 import app from "./index.js";
-import debug from "debug";
-const createDebug = debug("robots:server");
+import createDebug from "debug";
+
+const debug = createDebug("robots:server");
 
 const startServer = (port: number) => {
-  app.listen(port, () => {
-    createDebug(`Server started at http://localhost:${port}`);
-  });
+  debug(`Server started at http://localhost:${port}`);
+
+  app.listen(port);
 };
 
 export default startServer;
