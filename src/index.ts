@@ -5,7 +5,6 @@ import "./server/index.js";
 
 const port = process.env.PORT ?? 4000;
 
-try {
-  await startDatabase();
-  startServer(+port);
-} catch (error) {}
+await startDatabase();
+
+startServer(+port);
