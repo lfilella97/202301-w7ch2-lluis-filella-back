@@ -8,3 +8,8 @@ export interface CustomRequest extends Request {
 export interface CustomJwtPayload extends JwtPayload {
   sub: string;
 }
+
+export interface userCredentials {
+  userName: string;
+  password: string;
+}
