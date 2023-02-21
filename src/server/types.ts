@@ -9,7 +9,7 @@ export interface CustomJwtPayload extends JwtPayload {
   sub: string;
 }
 
-export interface userCredentials {
+export interface UserCredentials {
   userName: string;
   password: string;
 }
