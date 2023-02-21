@@ -35,7 +35,7 @@ describe("Given the getRobots controller", () => {
     test("Then it should call jest method whith a robots list propierty on it", async () => {
       await getRobots(request as Request, response as Response, next);
 
-      expect(response.json).toBeCalledWith({ Robots: robotsList });
+      expect(response.json).toBeCalledWith({ robots: robotsList });
     });
   });
 });
