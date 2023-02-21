@@ -1,8 +1,8 @@
 import { Router } from "express";
 import login from "../controllers/loginController.js";
 
-const loginRouter = Router();
+const userRouter = Router();
 
-loginRouter.get("/", login);
+userRouter.get("/", login);
 
-export default loginRouter;
+export default userRouter;

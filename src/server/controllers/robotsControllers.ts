@@ -1,4 +1,5 @@
 import type { NextFunction, Request, Response } from "express";
+import CustomError from "../../customError/CustomError.js";
 import { Robot } from "../../database/RobotSchema.js";
 
 export const getRobots = async (
@@ -6,6 +7,12 @@ export const getRobots = async (
   res: Response,
   next: NextFunction
 ) => {
-  const Robots = await Robot.find();
-  res.status(200).json({ Robots });
+  const robots = await Robot.find();
+  res.status(200).json({ robots });
+
+  if (!robots) {
+    const error = new CustomError("robots not found", 404, "robots not found");
+
+    next(error);
+  }
 };

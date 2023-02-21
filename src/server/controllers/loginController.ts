@@ -30,7 +30,7 @@ export const login = async (
     sub: userName?._id,
   };
 
-  const token = jwt.sign(jwtPayload, process.env.SECRET!);
+  const token = jwt.sign(jwtPayload, process.env.JWR_SECRET!);
 
   res.status(200).json({ token });
 };
