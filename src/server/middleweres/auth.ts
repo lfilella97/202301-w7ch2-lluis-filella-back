@@ -1,7 +1,7 @@
+import { type CustomJwtPayload, type CustomRequest } from "../../server/types";
 import { type NextFunction, type Response } from "express";
-import CustomError from "../../customError/CustomError.js";
+import CustomError from "../../CustomError/CustomError.js";
 import jwt from "jsonwebtoken";
-import { type CustomJwtPayload, type CustomRequest } from "./types";
 
 const auth = (req: CustomRequest, res: Response, next: NextFunction) => {
   if (!req.header("Authorization")) {

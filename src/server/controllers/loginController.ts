@@ -1,33 +1,35 @@
 import "../../loadEnvoirements.js";
 import jwt from "jsonwebtoken";
 import { type NextFunction, type Request, type Response } from "express";
-import CustomError from "../../customError/CustomError.js";
-import { User } from "../../database/userSchema.js";
-export const login = async (
+import { type userCredentials } from "../../server/types";
+import CustomError from "../../CustomError/CustomError.js";
+import User from "../../database/models/userSchema.js";
+
+const login = async (
   req: Request<
     Record<string, unknown>,
     Record<string, unknown>,
-    { user: string; password: string }
+    userCredentials
   >,
   res: Response,
   next: NextFunction
 ) => {
-  const { password, user } = req.body;
+  const { password, userName } = req.body;
 
-  const userName = await User.findOne({ user, password });
+  const user = await User.findOne({ userName, password });
 
-  if (!userName) {
+  if (!user) {
     const customError = new CustomError(
-      "There is no User",
+      "Incorrect user",
       401,
-      "You didn't provie a user name"
+      "Incorrect credentials"
     );
     next(customError);
     return;
   }
 
   const jwtPayload = {
-    sub: userName?._id,
+    sub: user?._id,
   };
 
   const token = jwt.sign(jwtPayload, process.env.JWR_SECRET!);

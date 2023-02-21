@@ -1,6 +1,6 @@
 import { type Response, type Request, type NextFunction } from "express";
-import { Robot } from "../../database/RobotSchema";
-import { getRobots } from "./robotsControllers";
+import { getRobots } from "./robotsController";
+import Robot from "../../database/models/robotSchema";
 
 const robotsList = [
   {
