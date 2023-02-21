@@ -1,7 +1,8 @@
 import express from "express";
 import morgan from "morgan";
 import cors from "cors";
-import { getRobots } from "./controllers/robotsControllers.js";
+import robotsRouter from "./routers/router.js";
+import loginRouter from "./routers/routerLogin.js";
 
 const app = express();
 
@@ -10,7 +11,7 @@ app.disable("x-powered-by");
 
 app.use(morgan("dev"));
 app.use(express.json());
-
-app.get("/robots", getRobots);
+app.use("/login", loginRouter);
+app.use("/robots", robotsRouter);
 
 export default app;
