@@ -1,7 +1,7 @@
 import "../../loadEnvoirements.js";
 import jwt from "jsonwebtoken";
 import { type NextFunction, type Request, type Response } from "express";
-import { type userCredentials } from "../../server/types";
+import { type UserCredentials } from "../../server/types";
 import CustomError from "../../CustomError/CustomError.js";
 import User from "../../database/models/userSchema.js";
 
@@ -9,7 +9,7 @@ const login = async (
   req: Request<
     Record<string, unknown>,
     Record<string, unknown>,
-    userCredentials
+    UserCredentials
   >,
   res: Response,
   next: NextFunction
