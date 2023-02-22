@@ -1,6 +1,6 @@
 import type { NextFunction, Request, Response } from "express";
-import CustomError from "../../CustomError/CustomError";
-import Robot from "../../database/models/robotSchema";
+import CustomError from "../../CustomError/CustomError.js";
+import Robot from "../../database/models/robotSchema.js";
 
 export const getRobots = async (
   req: Request,

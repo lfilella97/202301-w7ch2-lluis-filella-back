@@ -32,7 +32,7 @@ const login = async (
     sub: user?._id,
   };
 
-  const token = jwt.sign(jwtPayload, process.env.JWR_SECRET!);
+  const token = jwt.sign(jwtPayload, process.env.JWT_SECRET!);
 
   res.status(200).json({ token });
 };

@@ -1,10 +1,10 @@
 import "./loadEnvoirements.js";
-import { startDatabase } from "./database/conectDatabase.js";
+import { connectDatabase } from "./database/connectDatabase.js";
 import startServer from "./server/startServer.js";
 import "./server/index.js";
 
 const port = process.env.PORT ?? 4000;
+const dataBaseUrl = process.env.DATABASE_URL!;
 
-await startDatabase();
-
+await connectDatabase(dataBaseUrl);
 startServer(+port);
