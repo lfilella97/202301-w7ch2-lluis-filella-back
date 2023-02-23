@@ -1,11 +1,11 @@
-import "../../loadEnvoirements.js";
+import "../../../../loadEnvoirements.js";
 import jwt from "jsonwebtoken";
 import { type NextFunction, type Request, type Response } from "express";
-import { type UserCredentials } from "../../server/types";
-import CustomError from "../../CustomError/CustomError.js";
-import User from "../../database/models/userSchema.js";
+import { type UserCredentials } from "../../../../types";
+import CustomError from "../../../../CustomError/CustomError.js";
+import User from "../../../../database/models/userSchema.js";
 
-const login = async (
+const loginUser = async (
   req: Request<
     Record<string, unknown>,
     Record<string, unknown>,
@@ -20,7 +20,7 @@ const login = async (
 
   if (!user) {
     const customError = new CustomError(
-      "Incorrect user",
+      "Incorrect credentials",
       401,
       "Incorrect credentials"
     );
@@ -37,4 +37,4 @@ const login = async (
   res.status(200).json({ token });
 };
 
-export default login;
+export default loginUser;

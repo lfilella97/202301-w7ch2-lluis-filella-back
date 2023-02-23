@@ -2,7 +2,7 @@ import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
 import { connectDatabase } from "../../../database/connectDatabase";
 import User from "../../../database/models/userSchema";
-import { type UserCredentials } from "../../types";
+import { type UserCredentials } from "../../../types";
 import request from "supertest";
 import app from "../..";
 
@@ -20,10 +20,6 @@ afterAll(async () => {
 
 describe("Given a POST user/login ", () => {
   describe("When it receives a request with name lluis and password 1234", () => {
-    const newUser: UserCredentials = {
-      userName: "lluis",
-      password: "1234",
-    };
     describe("And the userName and the password are the same in the database", () => {
       test("Then it should return token", async () => {
         const newUser: UserCredentials = {
