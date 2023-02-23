@@ -1,4 +1,4 @@
-import { type CustomJwtPayload, type CustomRequest } from "../../server/types";
+import { type CustomJwtPayload, type CustomRequest } from "../../types";
 import { type NextFunction, type Response } from "express";
 import CustomError from "../../CustomError/CustomError.js";
 import jwt from "jsonwebtoken";

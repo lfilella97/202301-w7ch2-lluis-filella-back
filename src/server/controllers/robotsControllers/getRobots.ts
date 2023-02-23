@@ -1,12 +1,8 @@
 import type { NextFunction, Request, Response } from "express";
-import CustomError from "../../CustomError/CustomError";
-import Robot from "../../database/models/robotSchema";
+import CustomError from "../../../CustomError/CustomError.js";
+import Robot from "../../../database/models/robotSchema.js";
 
-export const getRobots = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+const getRobots = async (req: Request, res: Response, next: NextFunction) => {
   const robots = await Robot.find();
   res.status(200).json({ robots });
 
@@ -16,3 +12,5 @@ export const getRobots = async (
     next(error);
   }
 };
+
+export default getRobots;
