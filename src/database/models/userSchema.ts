@@ -7,6 +7,10 @@ const userSchema = new Schema({
     unique: true,
   },
   password: { type: String, required: true },
+  image: {
+    type: String,
+    require: false,
+  },
 });
 
 const User = model("User", userSchema, "users");

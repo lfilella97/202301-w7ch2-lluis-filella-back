@@ -13,3 +13,7 @@ export interface UserCredentials {
   userName: string;
   password: string;
 }
+
+export interface ImageContentFile {
+  filename: string;
+}
