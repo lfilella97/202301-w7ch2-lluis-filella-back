@@ -1,8 +1,9 @@
 import { type NextFunction, type Request, type Response } from "express";
 import CustomError from "../../../../CustomError/CustomError.js";
 import User from "../../../../database/models/userSchema.js";
-import { type ImageContentFile, type UserCredentials } from "../../../../types";
+import { type UserCredentials } from "../../../../types";
 import bcryptjs from "bcryptjs";
+import jwt from "jsonwebtoken";
 
 const createUser = async (
   req: Request<
@@ -26,10 +27,19 @@ const createUser = async (
       image,
     });
 
-    res.status(200).json({ user });
+    const jwtPayload = {
+      sub: user?._id,
+    };
+
+    const token = jwt.sign(jwtPayload, process.env.JWT_SECRET!);
+
+    res.status(200).json({ userName, token });
   } catch (error) {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    const newError = new CustomError(error.message, 409, "Can't create user");
+    const newError = new CustomError(
+      (error as Error).message,
+      409,
+      "Can't create user"
+    );
 
     next(newError);
   }
